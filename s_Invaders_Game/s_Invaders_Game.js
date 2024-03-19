@@ -1,23 +1,26 @@
 let scl = 20, cols, rows;
-
+function preload(){
+  alienIMG =loadImage("alien.png")
+}
 function setup() {
   createCanvas(600, 400);
   ship = new Ship();
-  cols = floor(width / scl);
-  rows = floor(height / scl);
-  
+  //cols = floor(width / scl);
+  //rows = floor(height / scl);
   aliens= [];
+  aliensLine= [];
   bullets=[];
   for(var i=0;i<9;i++){
-    aliens[i]= new Alien(i*40+60, 40);  
+    aliens[i]= new Alien(i*50+60,40);
   }
+
 }
 
 function draw() {
   background(51);
   ship.show();
-  var edge=false;
   
+  var edge=false;
   for(var i=0;i<aliens.length;i++){
     aliens[i].show()
     aliens[i].move()
